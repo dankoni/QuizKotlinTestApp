@@ -4,12 +4,17 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
+apply from: '../versions.gradle'
+apply from: '../dependencies.gradle'
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion project.compileSdk
     defaultConfig {
         applicationId "com.example.quizkotlin"
-        minSdkVersion 23
-        targetSdkVersion 28
+        minSdkVersion project.minSdk
+        targetSdkVersion project.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -28,7 +33,26 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
     implementation 'androidx.core:core-ktx:1.1.0-alpha05'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation lifecycleDependecies.values()
+    implementation networkDependencies.values()
+    implementation rxJavaDependencies.values()
+
+    //room
+    implementation roomImplementation
+    kapt anotations.values()
+
+
+
+// Test helpers
+    testImplementation testDependecies.values()
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
 }
