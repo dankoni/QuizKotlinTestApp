@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -6,17 +16,23 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-apply from: '../versions.gradle'
 apply from: '../dependencies.gradle'
 
+apply plugin: 'io.fabric'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 android {
-    compileSdkVersion project.compileSdk
+    compileSdkVersion Sdk.compileSdk
     defaultConfig {
         applicationId "com.example.quizkotlin"
-        minSdkVersion project.minSdk
-        targetSdkVersion project.targetSdk
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion Sdk.minSdk
+        targetSdkVersion Sdk.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,13 +50,22 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0-alpha05'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
+
+    implementation project(Modules.data)
+    
     implementation lifecycleDependecies.values()
     implementation networkDependencies.values()
-    implementation rxJavaDependencies.values()
+
+    implementation Libarary.rxJava
+    implementation Libarary.rxAndroid
 
     //room
     implementation roomImplementation
     kapt anotations.values()
+
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
+        transitive = true
+    }
 
 
 
