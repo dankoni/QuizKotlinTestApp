@@ -36,6 +36,7 @@ dependencies {
 
     implementation Libarary.rxJava
     implementation Libarary.rxAndroid
+    implementation Libarary.rxCallAdapter
 
     // KOIN
     implementation Libarary.koin

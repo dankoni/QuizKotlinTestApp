@@ -59,6 +59,11 @@ dependencies {
     implementation Libarary.rxJava
     implementation Libarary.rxAndroid
 
+    //koin
+    // KOIN
+    implementation Libarary.koin
+    implementation Libarary.koinViewModel
+
     //room
     implementation roomImplementation
     kapt anotations.values()

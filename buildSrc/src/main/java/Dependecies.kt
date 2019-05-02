@@ -45,6 +45,7 @@ object Versions {
     val databinding = "3.3.2"
     val RxAndroidVersion = "2.0.1"
     val RxJavaVersion = "2.1.3"
+    val rxCallAdapter = "2.5.0"
 }
 
 object Libarary {
@@ -69,4 +70,5 @@ object Libarary {
     val httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
     val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.RxJavaVersion}"
     val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.RxAndroidVersion}"
+    val rxCallAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.rxCallAdapter}"
 }
