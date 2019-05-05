@@ -52,15 +52,11 @@ dependencies {
 
 
     implementation project(Modules.data)
-    
-    implementation lifecycleDependecies.values()
-    implementation networkDependencies.values()
 
     implementation Libarary.rxJava
     implementation Libarary.rxAndroid
 
     //koin
-    // KOIN
     implementation Libarary.koin
     implementation Libarary.koinViewModel
 

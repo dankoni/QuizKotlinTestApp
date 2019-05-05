@@ -48,6 +48,28 @@ object Versions {
     val rxCallAdapter = "2.5.0"
 }
 
+
+object KotlinLibraries {
+    val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    val kotlinCoroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+}
+
+object AndroidLibraries {
+
+    // KOTLIN
+    val kotlinCoroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+
+    // ANDROID
+    val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
+    val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
+    val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+    val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
+    val navigation = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
+    val navigationFrag = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
+}
+
 object Libarary {
 
     val nav_version = "2.1.0-alpha02"
@@ -56,6 +78,7 @@ object Libarary {
     // KOIN
     val koin = "org.koin:koin-android:${Versions.koin}"
     val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
+
     // ROOM
     val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     val roomRunTime = "androidx.room:room-runtime:${Versions.room}"
@@ -72,3 +95,25 @@ object Libarary {
     val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.RxAndroidVersion}"
     val rxCallAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.rxCallAdapter}"
 }
+
+object TestLibraries {
+    // ANDROID TEST
+    val androidTestRunner = "androidx.test:runner:${Versions.androidTestRunner}"
+    val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+    val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espressoCore}"
+    val archCoreTest = "androidx.arch.core:core-testing:${Versions.archCoreTest}"
+    val junit = "androidx.test.ext:junit:${Versions.androidJunit}"
+    val fragmentNav = "androidx.fragment:fragment-testing:${Versions.fragmentTest}"
+    // KOIN
+    val koin = "org.koin:koin-test:${Versions.koin}"
+    // MOCK WEBSERVER
+    val mockWebServer = "com.squareup.okhttp:mockwebserver:${Versions.mockwebserver}"
+    // MOCK
+    val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
+    val mockk = "io.mockk:mockk:${Versions.mockk}"
+    // COROUTINE
+    val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    // DATA BINDING
+    val databinding = "androidx.databinding:databinding-compiler:${Versions.databinding}"
+}
+

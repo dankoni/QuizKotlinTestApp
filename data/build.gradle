@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
 
 android {
     compileSdkVersion 28
@@ -37,6 +40,13 @@ dependencies {
     implementation Libarary.rxJava
     implementation Libarary.rxAndroid
     implementation Libarary.rxCallAdapter
+
+    //ROOM
+    annotationProcessor Libarary.roomCompiler
+    kapt Libarary.roomCompiler
+
+    implementation Libarary.roomRunTime
+    implementation Libarary.roomKtx
 
     // KOIN
     implementation Libarary.koin
