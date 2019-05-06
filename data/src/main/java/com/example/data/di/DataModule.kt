@@ -1,9 +1,12 @@
-package di
+package com.example.data.di
 
+import com.example.data.QuizRepository
+import com.example.data.database.QuizDatabase
 import com.example.data.network.QuizApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -26,4 +29,10 @@ fun dataModule() = module {
     }
 
     factory { get<Retrofit>().create(QuizApi::class.java) }
+
+    single { QuizDatabase.createDatabase(androidContext()) }
+
+    factory { get<QuizDatabase>().quizDao() }
+
+    single { QuizRepository(get(), get()) }
 }

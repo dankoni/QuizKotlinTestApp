@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 
-@Entity
+@Entity(tableName = "question_table")
 data class Question(
     @PrimaryKey(autoGenerate = true) val id: Int? = null,
     val correct_answer: String,
