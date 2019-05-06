@@ -74,7 +74,6 @@ object Libarary {
 
     val nav_version = "2.1.0-alpha02"
 
-
     // KOIN
     val koin = "org.koin:koin-android:${Versions.koin}"
     val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"

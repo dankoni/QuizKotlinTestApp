@@ -16,7 +16,7 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-apply from: '../dependencies.gradle'
+apply from: '../dependencies_test.gradle'
 
 apply plugin: 'io.fabric'
 
@@ -41,6 +41,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    signingConfigs {
+        release {
+            // this keystore is located at module level
+            storeFile file("../.keystore/quizkotlin")
+            storePassword "quiz123"
+            keyAlias "quiz"
+            keyPassword "quiz123"
+        }
+    }
 }
 
 dependencies {
@@ -60,25 +70,10 @@ dependencies {
     implementation Libarary.koin
     implementation Libarary.koinViewModel
 
-    //room
-    implementation roomImplementation
-    kapt anotations.values()
-
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
         transitive = true
     }
 
 
-
-// Test helpers
-    testImplementation testDependecies.values()
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 
 }

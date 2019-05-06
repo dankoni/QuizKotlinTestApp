@@ -3,6 +3,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 
+apply from: '../dependencies_test.gradle'
+
+
 android {
     compileSdkVersion 28
 
@@ -51,10 +54,5 @@ dependencies {
     // KOIN
     implementation Libarary.koin
     implementation Libarary.koinViewModel
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
 
 }
