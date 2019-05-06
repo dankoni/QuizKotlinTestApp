@@ -1,0 +1,51 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :beta do
+    gradle(task: "clean assembleRelease")
+
+    #read from git commits
+    #changelog_from_git_commits
+
+    #read from file
+    changelog = File.read("../Changelog.txt")
+
+    # Fetch data from a remote web server
+    #changelog = download(url: "https://lookatmycms.com/changelog.txt")
+
+     crashlytics(
+        api_token: 'e6069072d8d8ea4b02b657b4fe4b1f22b9f48d5a',
+        build_secret: '059b733259e9923110b8da9d2f454f401d5880ac94bf2f86489252b12bb3f361',
+        notes: changelog,
+        groups: 'testers'
+      )
+    # sh "your_script.sh"
+    # You can also use other beta testing services here
+  end
+
+  desc "Deploy a new version to the Google Play"
+  lane :deploy do
+    gradle(task: "clean assembleRelease")
+  end
+end
