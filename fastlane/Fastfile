@@ -26,13 +26,16 @@ platform :android do
     gradle(task: "clean assembleRelease")
 
     #read from git commits
-    #changelog_from_git_commits
+    changelog = changelog_from_git_commits(
+                  between: ["b7b5b8721d5827dd6606f183dd7b221fcba36832", "HEAD"],  # Optional, lets you specify a revision/tag range between which to collect commit info
+                  merge_commit_filtering: "exclude_merges" # Optional, lets you filter out merge commits
+                )
 
     #read from file
-    changelog = File.read("../Changelog.txt")
+    #changelog = File.read("../Changelog.txt")
 
     # Fetch data from a remote web server
-    #changelog = download(url: "https://lookatmycms.com/changelog.txt")
+    #changelog = download(url: "https://someserver/relaese.txt")
 
      crashlytics(
         api_token: 'e6069072d8d8ea4b02b657b4fe4b1f22b9f48d5a',
