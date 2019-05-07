@@ -70,7 +70,7 @@ object AndroidLibraries {
     val navigationFrag = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
 }
 
-object Libarary {
+object Libraries {
 
     val nav_version = "2.1.0-alpha02"
 

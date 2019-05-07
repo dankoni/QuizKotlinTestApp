@@ -33,26 +33,27 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation AndroidLibraries.appCompat
 
-    implementation Libarary.retrofit
-    implementation Libarary.retrofitGsonConverter
-    implementation Libarary.retrofitGsonConverter
-    implementation Libarary.httpLoggingInterceptor
 
-    implementation Libarary.rxJava
-    implementation Libarary.rxAndroid
-    implementation Libarary.rxCallAdapter
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitGsonConverter
+    implementation Libraries.retrofitGsonConverter
+    implementation Libraries.httpLoggingInterceptor
+
+    implementation Libraries.rxJava
+    implementation Libraries.rxAndroid
+    implementation Libraries.rxCallAdapter
 
     //ROOM
-    annotationProcessor Libarary.roomCompiler
-    kapt Libarary.roomCompiler
+    annotationProcessor Libraries.roomCompiler
+    kapt Libraries.roomCompiler
 
-    implementation Libarary.roomRunTime
-    implementation Libarary.roomKtx
+    implementation Libraries.roomRunTime
+    implementation Libraries.roomKtx
 
     // KOIN
-    implementation Libarary.koin
-    implementation Libarary.koinViewModel
+    implementation Libraries.koin
+    implementation Libraries.koinViewModel
 
 }

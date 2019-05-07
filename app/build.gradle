@@ -56,19 +56,19 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-    implementation 'androidx.core:core-ktx:1.1.0-alpha05'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation  AndroidLibraries.appCompat
+    implementation  AndroidLibraries.coreKtx
+    implementation  AndroidLibraries.constraintLayout
 
 
     implementation project(Modules.data)
 
-    implementation Libarary.rxJava
-    implementation Libarary.rxAndroid
+    implementation Libraries.rxJava
+    implementation Libraries.rxAndroid
 
     //koin
-    implementation Libarary.koin
-    implementation Libarary.koinViewModel
+    implementation Libraries.koin
+    implementation Libraries.koinViewModel
 
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
         transitive = true
